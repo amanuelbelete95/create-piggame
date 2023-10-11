@@ -26,6 +26,14 @@ score1.textContent = 0;
 score2.textContent = 0;
 diceEl.classList.add('hidden');
 
+const switchPlayer = function () {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0El.classList.toggle('player--active');
+  player1El.classList.toggle('player--active');
+};
+
 // roll dice functionality;
 
 // generatae the random roll;
@@ -52,15 +60,28 @@ const setDice = function () {
   } else {
     // if we role dice = 1; we loose our score and switch the player
     //switch the  players
-
-    document.getElementById(`current--${activePlayer}`).textContent = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    // document.querySelector('.player').classList.add('active--player');
-    currentScore = 0;
-
-    player0El.classList.toggle('player--active');
-    player1El.classList.toggle('player--active');
+    switchPlayer();
   }
 };
 
 btnRoll.addEventListener('click', setDice);
+btnHold.addEventListener('click', function () {
+  scores[activePlayer] += currentScore;
+  // switchPlayer();
+  //ex scores[0] = score[0] + currentScore;
+
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+  // check for the winner or switch the  player
+  if (scores[activePlayer] >= 20) {
+    //finish the game
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.add('player--winner');
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove('player--active');
+  } else {
+    switchPlayer();
+  }
+});

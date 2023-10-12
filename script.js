@@ -45,6 +45,29 @@ const initGame = function () {
 
 initGame();
 
+const holdScore = function () {
+  if (playing) {
+    scores[activePlayer] += currentScore;
+
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+    // check for the winner or switch the  player
+    if (scores[activePlayer] >= 100) {
+      //finish the game
+      playing = false;
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+      diceEl.classList.add('hidden');
+    } else {
+      switchPlayer();
+    }
+  }
+};
+
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
@@ -70,39 +93,9 @@ const setDice = function () {
     }
   }
 };
-
+// roll the dice
 btnRoll.addEventListener('click', setDice);
-btnHold.addEventListener('click', function () {
-  /* for (let i = 0; i < scores.length; i++) {
-  //   playing = scores[activePlayer] >= 20 ? false : true;
-  }
-  */
-  //check if the score reaches 20; assign the state of game.
-  // if score reaches 20, no rolling dice will happen.
-  if (playing) {
-    scores[activePlayer] += currentScore;
-
-    document.getElementById(`score--${activePlayer}`).textContent =
-      scores[activePlayer];
-    // check for the winner or switch the  player
-    if (scores[activePlayer] >= 20) {
-      //finish the game
-      playing = false;
-      document
-        .querySelector(`.player--${activePlayer}`)
-        .classList.add('player--winner');
-      document
-        .querySelector(`.player--${activePlayer}`)
-        .classList.remove('player--active');
-      diceEl.classList.add('hidden');
-    } else {
-      switchPlayer();
-    }
-  }
-});
-
+// hold score
+btnHold.addEventListener('click', holdScore);
 // reset the game button functionality
-
-btnNew.addEventListener('click', function () {
-  initGame();
-});
+btnNew.addEventListener('click', initGame);

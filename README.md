@@ -55,8 +55,8 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[set up ]**
-- **[updating and storing data - API]**
+- **[PLaying game ] **
+- **[reset the game status]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -92,7 +92,7 @@ Example command:
 
 Clone this repository to your desired folder:
 
-git clone https://github.com/amanuelbelete95/leader-board
+git clone https://github.com/amanuelbelete95/create-piggame
 
 <!--
 Example commands:
@@ -192,7 +192,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/amanuelbelete95/leader-board/issues).
+Feel free to check the [issues page](https://github.com/amanuelbelete95/create-piggame/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -208,7 +208,7 @@ If you like this project kindly star it.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank microverse and my coding partners.
+I would like to an udemy and Johnatan for this project succes.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
